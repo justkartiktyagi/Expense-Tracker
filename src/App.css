@@ -109,8 +109,14 @@
     transform: translateY(0);
   }
 }
+
+.graph{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .graphText{
-  margin-left:43%;
+
   color: #1E2939;
 
 }

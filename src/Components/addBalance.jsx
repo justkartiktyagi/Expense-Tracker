@@ -6,7 +6,13 @@ const AddBalance = () => {
   const [text, setText] = useState("");
   const [amount, setAmount] = useState("");
   const { addTransaction } = useContext(TransactionContext);
-  const handleSubmit = (text, amount) => {
+  const handleIncomeSubmit = (text, amount) => {
+    addTransaction(text, amount);
+    setText("");
+    setAmount("");
+  };
+  const handleExpenseSubmit = (text, amount) => {
+    amount = -amount;
     addTransaction(text, amount);
     setText("");
     setAmount("");
@@ -28,7 +34,6 @@ const AddBalance = () => {
         <div className="form-control">
           <label>
             Amount <br />
-            (negative - expense, positive - income)
           </label>
           <input
             type="number"
@@ -37,15 +42,26 @@ const AddBalance = () => {
             onChange={(e) => setAmount(e.target.value)}
           />
         </div>
-        <button
-          className="add-btn"
-          onClick={(e) => {
-            e.preventDefault();
-            handleSubmit(text, amount);
-          }}
-        >
-          Add Transaction
-        </button>
+        <div className="submitButton">
+          <button
+            className="add-btn"
+            onClick={(e) => {
+              e.preventDefault();
+              handleIncomeSubmit(text, amount);
+            }}
+          >
+            Income
+          </button>
+          <button
+            className="add-btn-expense"
+            onClick={(e) => {
+              e.preventDefault();
+              handleExpenseSubmit(text, amount);
+            }}
+          >
+            Expense
+          </button>
+        </div>
       </form>
     </div>
   );

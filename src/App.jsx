@@ -16,7 +16,7 @@ function App() {
       <IncomeExpense />
       <AddBalance />
       <TransactionList />
-      <div className="bg-white rounded-xl shadow-md p-4 mt-6">
+      <div className="bg-white rounded-xl shadow-md p-4 mt-6 graph">
         <h2 className="text-xl font-semibold mb-4 text-gray-800 graphText">
           Income vs Expense
         </h2>

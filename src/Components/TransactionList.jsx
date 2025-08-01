@@ -4,7 +4,7 @@ import { TransactionContext } from "../context/reactContext.jsx";
 
 const TransactionList = () => {
   const { transactions } = useContext(TransactionContext);
-
+  const reversedTransactions = [...transactions].reverse();
   return (
     <div className="transaction-list shadow p-6">
       <h2 className="Transiction_hist">Transaction History</h2>
@@ -21,7 +21,7 @@ const TransactionList = () => {
           </p>
         </div>
       ) : (
-        <Transaction transactions={transactions} />
+        <Transaction transactions={reversedTransactions} />
       )}
     </div>
   );
